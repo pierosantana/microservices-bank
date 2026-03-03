@@ -11,4 +11,4 @@ Microservicio responsable de la gestión de clientes dentro del proyecto **micro
 - `service` – Lógica de negocio.
 - `util` – Clases auxiliares para mapeos y operaciones CRUD genéricas.
 
-![Estructura](../img/mcc-customer-service.png)
+![Estructura](../imgs/mcc-customer-service.png)
