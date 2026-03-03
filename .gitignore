@@ -1,0 +1,100 @@
+############################
+# macOS
+############################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+*.dmg
+*.sparsebundle
+
+############################
+# Windows
+############################
+# Archivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Carpeta de la papelera
+$RECYCLE.BIN/
+
+# Streams alternos NTFS
+*:*             # Evita metadatos raros de Windows
+
+############################
+# IntelliJ IDEA
+############################
+.idea/
+*.iml
+out/
+.idea_modules/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/httpRequests/
+
+############################
+# Java
+############################
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.car
+hs_err_pid*
+replay_pid*
+
+############################
+# Maven
+############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+############################
+# Gradle
+############################
+.gradle/
+build/
+# Wrapper cache
+.gradle/
+gradle-app.setting
+
+############################
+# Logs
+############################
+*.log
+
+############################
+# Archivos temporales
+############################
+*.swp
+*.tmp
+*.pid
+*.seed
+*.orig
+
+############################
+# Archivos de env/credenciales
+############################
+*.env
+*.key
+*.pem
+*.p12
+*.keystore
+*.jks
+
+############################
+# IDE genéricos
+############################
+*.project
+*.classpath
+*.settings/
+.vscode/
