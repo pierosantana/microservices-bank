@@ -4,6 +4,7 @@ import com.psantana.mcc_customer_service.dto.CustomerDTO;
 import com.psantana.mcc_customer_service.entity.CustomerEntity;
 import com.psantana.mcc_customer_service.repository.ICustomerRepository;
 import com.psantana.mcc_customer_service.service.interfaces.ICustomerService;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Service
 @Log4j2
+@AllArgsConstructor
 public class CustomerServiceImpl implements ICustomerService {
 
     private ICustomerRepository customerRepository;
