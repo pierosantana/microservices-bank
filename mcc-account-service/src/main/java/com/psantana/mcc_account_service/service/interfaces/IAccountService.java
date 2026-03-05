@@ -1,0 +1,12 @@
+package com.psantana.mcc_account_service.service.interfaces;
+
+import com.psantana.mcc_account_service.dto.AccountDTO;
+import com.psantana.mcc_account_service.dto.DepositDTO;
+import com.psantana.mcc_account_service.util.ICrud;
+
+public interface IAccountService extends ICrud<AccountDTO> {
+
+    public AccountDTO depositInAccount (DepositDTO depositDTO);
+
+
+}
