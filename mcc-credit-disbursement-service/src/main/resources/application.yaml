@@ -24,4 +24,4 @@ feign:
 azure:
   servicebus:
     connection-string: ${SERVICE_BUS_CONNECTION_STRING}
-    queue-name: credit_disbursement-queue
+    queue-name: credit-disbursement-queue
