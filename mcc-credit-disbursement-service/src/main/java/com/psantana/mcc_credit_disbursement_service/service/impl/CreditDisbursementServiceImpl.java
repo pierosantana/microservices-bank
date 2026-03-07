@@ -1,10 +1,12 @@
 package com.psantana.mcc_credit_disbursement_service.service.impl;
 
 import com.psantana.mcc_credit_disbursement_service.client.IAccountRestClient;
+import com.psantana.mcc_credit_disbursement_service.config.PublisherMessageService;
 import com.psantana.mcc_credit_disbursement_service.dto.AccountDTO;
 import com.psantana.mcc_credit_disbursement_service.dto.CreditDisbursementDTO;
 import com.psantana.mcc_credit_disbursement_service.dto.DepositDTO;
 import com.psantana.mcc_credit_disbursement_service.entity.CreditDisbursementEntity;
+import com.psantana.mcc_credit_disbursement_service.event.CreditDisbursementEvent;
 import com.psantana.mcc_credit_disbursement_service.repository.ICreditDisbursementRepository;
 import com.psantana.mcc_credit_disbursement_service.service.interfaces.ICreditDisbursementService;
 import lombok.AllArgsConstructor;
@@ -21,6 +23,7 @@ public class CreditDisbursementServiceImpl implements ICreditDisbursementService
 
     private IAccountRestClient accountRestClient;
     private ICreditDisbursementRepository repository;
+    private PublisherMessageService publisherMessageService;
 
 
     @Override
@@ -46,8 +49,15 @@ public class CreditDisbursementServiceImpl implements ICreditDisbursementService
         if(responseEntityDepositInAccount.getStatusCode().is2xxSuccessful()) {
             CreditDisbursementEntity creditDisbursementEntity = new CreditDisbursementEntity();
             creditDisbursementEntity.setData(creditDisbursementDTO);
-            return repository.save(creditDisbursementEntity).getDTO();
-
+            CreditDisbursementEntity savedEntity = repository.save(creditDisbursementEntity);
+            //send message
+            CreditDisbursementEvent creditDisbursementEvent = CreditDisbursementEvent.builder()
+                    .accountNumber(creditDisbursementDTO.getAccountNumber())
+                    .amount(creditDisbursementDTO.getAmount())
+                    .email("piero.santanalarosa@gmail.com")
+                    .build();
+            publisherMessageService.sendCreditDisbursementEvent(creditDisbursementEvent);
+            return savedEntity.getDTO();
                 }
 
         return CreditDisbursementDTO.builder().build();
