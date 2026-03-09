@@ -55,6 +55,7 @@ public class CreditDisbursementServiceImpl implements ICreditDisbursementService
                     .accountNumber(creditDisbursementDTO.getAccountNumber())
                     .amount(creditDisbursementDTO.getAmount())
                     .email("piero.santanalarosa@gmail.com")
+                    .customerCu(creditDisbursementDTO.getCustomerCu())
                     .build();
             publisherMessageService.sendCreditDisbursementEvent(creditDisbursementEvent);
             return savedEntity.getDTO();
