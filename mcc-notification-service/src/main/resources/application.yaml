@@ -1,6 +1,11 @@
 spring:
   application:
     name: mcc-notification-service
+  mail:
+    host: ${MAIL_HOST:sandbox.smtp.mailtrap.io}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:d96f99fbc6638f}
+    password: ${MAIL_PASSWORD:8bcbfa4c7739a9}
 server:
   port: ${SERVER_PORT:8084}
 azure:
